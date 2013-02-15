@@ -2,14 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b98e1ca-db30-43ac-bcdd-13298cf38d8f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/teleraffles.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Application.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/ControllerTrait.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Teleraffle/Controller/Create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Dispatcher.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Exception.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Teleraffle/Controller/Homepage.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Teleraffle/RaffleManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Request.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/ResourceManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Response.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Route.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/RouteInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/Router.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Teleraffle/Controller/Sms.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/Piano/View.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jimbojsb/piano/src/pharstub.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/run.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="teleraffles.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,6 +52,7 @@
     <file path="/run.php" changelist="4b98e1ca-db30-43ac-bcdd-13298cf38d8f" time="1360893242329" ignored="false" />
     <file path="/routes.php" changelist="4b98e1ca-db30-43ac-bcdd-13298cf38d8f" time="1360893271709" ignored="false" />
     <file path="/RaffleManager.php" changelist="4b98e1ca-db30-43ac-bcdd-13298cf38d8f" time="1360893530759" ignored="false" />
+    <file path="/.gitignore" changelist="4b98e1ca-db30-43ac-bcdd-13298cf38d8f" time="1360895217828" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,10 +126,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RaffleManager.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RaffleManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Teleraffle/RaffleManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.092307694">
+            <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="-2.857143">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,6 +176,8 @@
         <option value="$PROJECT_DIR$/src/run.php" />
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/src/Teleraffle/RaffleManager.php" />
+        <option value="$PROJECT_DIR$/vendor/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -174,6 +228,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="teleraffles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teleraffles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teleraffles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,7 +479,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Teleraffle/RaffleManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.092307694">
+        <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="-2.857143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

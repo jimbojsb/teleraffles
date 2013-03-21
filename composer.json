@@ -1,6 +1,8 @@
 {
     "require": {
-        "jimbojsb/piano": "0.3.1"
+        "jimbojsb/piano": "0.3.1",
+        "predis/predis": "0.8.*",
+        "twilio/sdk": "3.*"
     }
 
 }

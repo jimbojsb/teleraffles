@@ -1,0 +1,13 @@
+<?=$this->render("header.phtml")?>
+<div class="row">
+    <div class="span12">
+        <h1>Create a new raffle</h1>
+        <form class="form" method="POST" action="/create">
+            <label>Name</label><input type="text" name="name"/>
+            <label>Number of Winners</label><input type="text" name="winners"/>
+            <br/>
+            <input type="submit" value="Create" class="btn btn-success"/>
+        </form>
+    </div>
+</div>
+<?=$this->render("footer.phtml")?>

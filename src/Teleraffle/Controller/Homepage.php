@@ -1,8 +1,18 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: josh
- * Date: 2/14/13
- * Time: 7:55 PM
- * To change this template use File | Settings | File Templates.
- */
+namespace Teleraffle\Controller;
+
+use Piano\View,
+    Piano\Response;
+
+class Homepage
+{
+    public function index()
+    {
+        return (new View)->render('index.phtml');
+    }
+
+    public function error()
+    {
+        return (new Response("404 Not Found"))->setStatusCode(404);
+    }
+}

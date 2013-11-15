@@ -20,6 +20,10 @@ class Raffle
             $numWinners = $_POST["winners"];
 
             // do some basic validation of the data being submitted
+            if(empty($name)) {
+                $errors[] = 'The name of the raffle must not be empty.';
+            }
+
             if (filter_var($numWinners, FILTER_VALIDATE_INT) === false || $numWinners < 1) {
                 $errors[] = 'The number of winners must be an integer.';
             }

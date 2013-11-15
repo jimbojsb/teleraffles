@@ -5,4 +5,6 @@ if (php_sapi_name() == 'cli-server'
     return false;
 }
 
+ini_set('error_reporting', E_ALL & ~(E_NOTICE | E_DEPRECATED | E_STRICT));
+
 require_once __DIR__ . '/../src/run.php';

@@ -1,4 +1,17 @@
 <?=$this->render("header.phtml")?>
+
+<?php if (isset($this->error)) { ?>
+
+    <span class="alert-error">The following errors where found</span>
+
+    <ul>
+        <?php foreach ($this->error as $error) { ?>
+            <li><?= $error ?></li>
+        <?php } ?>
+    </ul>
+
+<?php } ?>
+
 <div class="row">
     <div class="span12">
         <h1>Create a new raffle</h1>

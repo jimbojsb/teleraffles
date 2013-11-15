@@ -11,15 +11,25 @@ class Raffle
     public function create()
     {
 
+        // state variable, store validation errors here
+        $errors = [];
+
         if ($_POST) {
+
+            $name = $_POST["name"];
+            $numWinners = $_POST["winners"];
+
+            // do some basic validation of the data being submitted
+            if (filter_var($numWinners, FILTER_VALIDATE_INT) === false || $numWinners < 1) {
+                $errors[] = 'The number of winners must be an integer.';
+            }
+
             $p = $this->application->redis;
             $randKey = "";
             for ($c = 0; $c < 4; $c++) {
                 $randKey .= mt_rand(0, 9);
             }
             $newRaffleKey = "raffle:$randKey";
-            $name = $_POST["name"];
-            $numWinners = $_POST["winners"];
             $p->hmset(
                 $newRaffleKey,
                 [
@@ -29,10 +39,17 @@ class Raffle
                     'drawn' => 0
                 ]
             );
+
+        }
+
+        // if there is a random key, load that, otherwise display the
+        // create page with any errors (if any)
+        if(count($_POST) >= 1 && count($errors) === 0) {
             return (new Response)->redirect("/view/$randKey");
         } else {
-            return (new View)->render('create.phtml');
+            return (new View)->render('create.phtml', ['error' => $errors]);
         }
+
     }
 
     public function view($id)

@@ -71,11 +71,21 @@ class Raffle
             try {
                 $num = $c + 1;
                 $sms = $t->account->sms_messages->create("512-524-6954", $winner, "You're winner #$num for $name!");
-
             } catch (\Exception $e) {
                 var_dump($e);
             }
         }
+
+        $entrants = array_slice($entrants, $winners);
+        foreach ($entrants as $loser) {
+            $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
+            try {
+                $sms = $t->account->sms_messages->create("512-524-6954", $loser, "Sorry, you didn't win one of the $winners $name");
+            } catch (\Exception $e) {
+                var_dump($e);
+            }
+        }
+
         $p->hset($raffleKey, 'drawn', 1);
         return (new View)->render('success.phtml');
     }

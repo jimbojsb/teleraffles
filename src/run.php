@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/autoload.php';
 $application = new \Piano\Application();
 
 require_once __DIR__ . '/routes.php';

@@ -3,6 +3,11 @@
         "jimbojsb/piano": "0.3.1",
         "predis/predis": "0.8.*",
         "twilio/sdk": "3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Teleraffle": "src/"
+        }
     }
 
 }

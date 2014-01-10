@@ -51,7 +51,7 @@ class Raffle
         if(count($_POST) >= 1 && count($errors) === 0) {
             return (new Response)->redirect("/view/$randKey");
         } else {
-            return (new View)->render('create.phtml', ['error' => $errors]);
+            return (new View)->render('create.phtml', ['error' => $errors ?: null]);
         }
 
     }

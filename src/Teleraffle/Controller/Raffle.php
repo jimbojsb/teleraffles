@@ -111,6 +111,11 @@ class Raffle
         $p->hset($raffleKey, 'drawn', 1);
         $v = new View;
         $v->winners = $winnerNums;
+        echo '<pre>';
+        foreach ($winnerNums as $winner) {
+            echo substr($winner, -4) . "\n";
+        }
+        echo '</pre>';
         return $v->render('success.phtml');
     }
 }

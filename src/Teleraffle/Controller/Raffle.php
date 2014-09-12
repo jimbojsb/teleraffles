@@ -88,6 +88,7 @@ class Raffle
         }
         for ($c = 0; $c < $winners; $c++) {
             $winner = $entrants[$c];
+            $winnerNums[] = $winner;
             $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
             try {
                 $num = $c + 1;
@@ -108,6 +109,8 @@ class Raffle
         }
 
         $p->hset($raffleKey, 'drawn', 1);
-        return (new View)->render('success.phtml');
+        $v = new View;
+        $v->winners = $winnerNums;
+        return $v->render('success.phtml');
     }
 }

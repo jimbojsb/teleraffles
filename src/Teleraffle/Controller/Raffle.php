@@ -74,42 +74,42 @@ class Raffle
 
         if ($raffle["drawn"]) {
             $v->already_drawn = 1;
-        }
-        $entrants = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=?", [$raffle["id"]]);
-        $name = $raffle["name"];
-        shuffle($entrants);
-        $winners = $raffle["winner_count"];
-        if ($winners > count($entrants)) {
-            $winners = count($entrants);
-        }
-        for ($c = 0; $c < $winners; $c++) {
-            $winner = $entrants[$c];
-            $winnerNums[] = $winner;
-            try {
-                $this->application->db->perform("UPDATE entrants SET winner=1 WHERE raffle_id=? AND phone=?", [$raffle["id"], $winner["phone"]]);
-            } catch (\Exception $e) {
-                var_dump($e);
+            $winnerNums = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=? AND winner=1", [$raffle["id"]]);
+        } else {
+            $entrants = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=?", [$raffle["id"]]);
+            $name = $raffle["name"];
+            shuffle($entrants);
+            $winners = $raffle["winner_count"];
+            if ($winners > count($entrants)) {
+                $winners = count($entrants);
             }
-            $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
-            try {
-                $num = $c + 1;
-                $sms = $t->account->sms_messages->create("512-524-6954", $winner["phone"], "You're winner #$num for $name!");
-            } catch (\Exception $e) {
-                var_dump($e);
+            for ($c = 0; $c < $winners; $c++) {
+                $winner = $entrants[$c];
+                $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
+                try {
+                    $num = $c + 1;
+                    $winner["winner"] = $num;
+                    $this->application->db->perform("UPDATE entrants SET winner=? WHERE raffle_id=? AND phone=?", [$num, $raffle["id"], $winner["phone"]]);
+                    $sms = $t->account->sms_messages->create("512-524-6954", $winner["phone"], "You're winner #$num for $name!");
+                } catch (\Exception $e) {
+                    var_dump($e);
+                }
+                $winnerNums[] = $winner;
             }
+
+            $entrants = array_slice($entrants, $winners);
+            foreach ($entrants as $loser) {
+                $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
+                try {
+                    $sms = $t->account->sms_messages->create("512-524-6954", $loser["phone"], "Sorry, you didn't win one of the $winners $name");
+                } catch (\Exception $e) {
+                    var_dump($e);
+                }
+            }
+
+            $this->application->db->perform("UPDATE raffles SET drawn=1 WHERE id=?", [$raffle["id"]]);
         }
 
-        $entrants = array_slice($entrants, $winners);
-        foreach ($entrants as $loser) {
-            $t = new \Services_Twilio("ACdbeb6551af084319a0ff37778134e2db", "63ebe1e4e9166f0ed4019d1bf0cbc902");
-            try {
-                $sms = $t->account->sms_messages->create("512-524-6954", $loser["phone"], "Sorry, you didn't win one of the $winners $name");
-            } catch (\Exception $e) {
-                var_dump($e);
-            }
-        }
-
-        $this->application->db->perform("UPDATE raffles SET drawn=1 WHERE id=?", [$raffle["id"]]);
         $v->winners = $winnerNums;
         return $v->render('success.phtml');
     }

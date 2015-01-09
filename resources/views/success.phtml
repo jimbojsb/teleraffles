@@ -3,10 +3,10 @@
     <h1>Already Drawn</h1>
 <?}else{?>
     <h1>Winners have been messaged!</h1>
+<?}?>
     <ul>
         <?foreach ($this->winners as $num){?>
-            <li><h3>#<?=++$c?>: xxx-xxx-<?=substr($num["phone"], -4)?></h3></li>
+            <li><h3>#<?=$num["winner"]?>: xxx-xxx-<?=substr($num["phone"], -4)?></h3></li>
         <?}?>
     </ul>
-<?}?>
 <?=$this->render('footer.phtml')?>

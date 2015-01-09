@@ -4,7 +4,7 @@ $application = new \Piano\Application();
 
 require_once __DIR__ . '/routes.php';
 
-$application->redis = new Predis\Client(null, ['prefix' => 'tlr:']);
+$application->db = new \Aura\Sql\ExtendedPdo("mysql:host=localhost;dbname=teleraffles", "teleraffles", "teleraffles");
 \Piano\View::setBathPath(__DIR__ . '/../resources/views');
 
 $application->run();

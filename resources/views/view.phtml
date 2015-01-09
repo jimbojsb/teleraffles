@@ -2,6 +2,13 @@
 <h1><?=$this->name?></h1>
 <h4>Text "<?=$this->key?>" to 512-524-6954 to enter</h4>
 <h5>Currently there are <?=$this->entrants?> people entered</h5>
+<ul>
+    <?foreach ($this->entrants as $entrant) {?>
+
+        <li><h3>xxx-x<?=substr($entrant["phone"], -7)?></h3></li>
+
+    <?}?>
+</ul>
 <script>
     setTimeout(function() {
         window.location.reload();

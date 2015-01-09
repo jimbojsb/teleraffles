@@ -7,15 +7,15 @@ class Sms
 
     public function receive()
     {
-        $p = $this->application->redis;
         $msgBody = $_POST['Body'];
         $msgFrom = $_POST["From"];
-        $raffleKey = "raffle:$msgBody";
-        if ($p->exists($raffleKey)) {
-            $entrantsKey = "entrants:$msgBody";
-            $name = $p->hget($raffleKey, 'name');
-            if (!$p->sismember($entrantsKey, $msgFrom)) {
-                $p->sadd($entrantsKey, $msgFrom);
+
+        $raffle = $this->application->db->fetchOne("SELECT * FROM raffles WHERE `key`=?", [$msgBody]);
+        if ($raffle) {
+            $name = $raffle["name"];
+            $alreadyEntered = $this->application->db->fetchOne("SELECT * FROM entrants WHERE raffle_id=? AND phone=?", [$raffle["id"], $msgFrom]);
+            if (!$alreadyEntered) {
+                $this->application->db->perform("INSERT INTO entrants (`raffle_id`, `phone`, `winner`) VALUES (?,?,?)", [$raffle["id"], $msgFrom, 0]);
                 echo "<Response><Sms>Your entry for $name is accepted!</Sms></Response>";
             } else {
                 echo "<Response><Sms>You're already entered for $name!</Sms></Response>";

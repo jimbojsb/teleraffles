@@ -1,5 +1,12 @@
 <?=$this->render('header.phtml')?>
-<h1>Winners have been messaged!</h1>
-
-
+<?if ($this->already_drawn){?>
+    <h1>Already Drawn</h1>
+<?}else{?>
+    <h1>Winners have been messaged!</h1>
+    <ul>
+        <?foreach ($this->winners as $num){?>
+            <li>#<?=++$c?>: xxx-x<?=substr($num["phone"], -7)?></li>
+        <?}?>
+    </ul>
+<?}?>
 <?=$this->render('footer.phtml')?>

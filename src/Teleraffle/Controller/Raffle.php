@@ -74,7 +74,7 @@ class Raffle
 
         if ($raffle["drawn"]) {
             $v->already_drawn = 1;
-            $winnerNums = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=? AND winner=1", [$raffle["id"]]);
+            $winnerNums = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=? AND winner>0 ORDER BY winner", [$raffle["id"]]);
         } else {
             $entrants = $this->application->db->fetchAll("SELECT * FROM entrants WHERE raffle_id=?", [$raffle["id"]]);
             $name = $raffle["name"];
